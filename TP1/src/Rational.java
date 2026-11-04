@@ -15,5 +15,23 @@ public class Rational {
         return denominador;
     }
 
+    @Override
+    public String toString() {
+        return this.getNumerador() + "/" + this.getDenominador() ;
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof Rational)){
+            return false;
+        }
+        Rational outro = (Rational) obj;
+        return (this.numerador == outro.numerador)&&(this.denominador == outro.denominador);
+    }
+
+    public Rational sum(Rational outro){
+        int ResultadoNumerador = (outro.denominador * this.numerador) + (outro.numerador * this.denominador);
+        int ResultadoDenominador = this.denominador * outro.denominador;
+        return new Rational(ResultadoNumerador, ResultadoDenominador);
+    }
 }
