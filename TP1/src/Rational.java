@@ -3,8 +3,9 @@ public class Rational {
     private int denominador;
 
     public Rational(int numerador, int denominador) {
-        this.numerador = numerador;
-        this.denominador = denominador;
+        int gcd = gcd(numerador, denominador);
+        this.numerador = numerador/gcd;
+        this.denominador = denominador/gcd;
     }
 
     public int getNumerador() {
@@ -56,6 +57,13 @@ public class Rational {
     public Rational div(Rational outro){
         return this.mul(outro.invert());
 
+    }
+
+    private static int gcd(int a, int b) {
+        for (int i = Math.min(a, b); i > 0; i--) {
+            if (a % i == 0 && b % i == 0) return i;
+        }
+        return 1;
     }
 
 

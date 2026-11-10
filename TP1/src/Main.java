@@ -13,7 +13,7 @@ public class Main {
         System.out.println(n1.equals(n4));
         Rational n5 = n1.mul(n2);
         Rational n6 = n5.opposite();
-        System.out.println(n6);
+        System.out.println(n5);
 
     }
 }
